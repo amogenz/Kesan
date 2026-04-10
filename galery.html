@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri - Air Mineral Kesan Ponpes Langitan</title>
+    <link rel="icon" type="image/png" href="airkesanlogo.png">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Header Khusus Galeri */
+        .hero-gallery {
+            padding: 130px 20px 50px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--soft-aqua) 0%, var(--white) 100%);
+        }
+
+        .hero-gallery h1 {
+            font-size: 2.5rem;
+            color: var(--primary-aqua);
+            margin-bottom: 10px;
+        }
+
+        .hero-gallery p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Layout Grid Galeri */
+        .gallery-section {
+            padding: 40px 5% 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: var(--gray-light);
+            aspect-ratio: 4/3; 
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            transition: transform 0.4s ease;
+            display: block;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* --- STYLING LIGHTBOX (POP-UP GAMBAR) --- */
+        .lightbox {
+            display: none; /* Sembunyi secara default */
+            position: fixed;
+            z-index: 3000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox.active img {
+            transform: scale(1);
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="kesanlogo.png" alt="Logo Air Mineral Kesan Produk Santri Langitan">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">BERANDA</a>
+        </div>
+    </nav>
+
+    <header class="hero-gallery">
+        <h1>Dokumentasi KESAN</h1>
+        <p>Klik gambar untuk melihat dalam ukuran penuh.</p>
+    </header>
+
+    <section class="gallery-section">
+        <div class="gallery-grid">
+            
+            <div class="gallery-item" onclick="bukaGambar(this)">
+                <img src="https://langitan.net/wp-content/uploads/2023/05/IMG_0194-1-scaled.jpg" alt="Dokumentasi Kesan 1">
+            </div>
+
+            <div class="gallery-item" onclick="bukaGambar(this)">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWNrx1TJqrjLqof5TsQoH5CvvjLEI1pNKuCNBq60QBk6TcZIA_NTUhNw8&s=10" alt="Dokumentasi Kesan 2">
+            </div>
+
+            <div class="gallery-item" onclick="bukaGambar(this)">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsiCvuhicWfzpKylIL4Obq-wG56GwEpiWYKWz8dIWqJeION44eg7i3Cnw1&s=10" alt="Dokumentasi Kesan 3">
+            </div>
+
+            <div class="gallery-item" onclick="bukaGambar(this)">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqVkb1ghmqiwvYj8ifyYiFgYZgQ-JFYqNY1mmxheb8lbjEbhUzU0GIIyEA&s=10" alt="Dokumentasi Kesan 4">
+            </div>
+
+            <div class="gallery-item" onclick="bukaGambar(this)">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP6cF3eRtDqjtoeXbjPw36M8ABSA55JCR8wlUEootskA&s=10" alt="Dokumentasi Kesan 5">
+            </div>
+
+            <div class="gallery-item" onclick="bukaGambar(this)">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjo-U3UGQ4fi_RzeoSYSnJYPmQmFNWYy9Mg87W-sEbdQ&s=10" alt="Dokumentasi Kesan 6">
+            </div>
+
+            <div class="gallery-item" onclick="bukaGambar(this)">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2026wMkf8S-qfvsdu93hvuSGrB9Ao_QiTmE9ogXWMtg&s=10" alt="Dokumentasi Kesan 7">
+            </div>
+
+        </div>
+    </section>
+
+    <div id="lightbox" class="lightbox" onclick="tutupGambar()">
+        <span class="close-lightbox">&times;</span>
+        <img id="imgFull" src="" alt="Gambar Ukuran Penuh">
+    </div>
+
+    <footer>
+        <p>&copy; 2026 PT. Kesan Indonesia - Jombang.<br>Segar, Murni, Terpercaya.</p>
+    </footer>
+
+    <script>
+        function bukaGambar(element) {
+            const lightbox = document.getElementById('lightbox');
+            const imgFull = document.getElementById('imgFull');
+            // Ambil URL gambar dari elemen yang diklik
+            const srcAsli = element.querySelector('img').src;
+            
+            imgFull.src = srcAsli;
+            lightbox.classList.add('active');
+            
+            // Mencegah scroll saat gambar terbuka
+            document.body.style.overflow = 'hidden';
+        }
+
+        function tutupGambar() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            
+            // Mengembalikan scroll
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+
+</body>
+</html>
