@@ -249,3 +249,54 @@
             text-align: center;
             font-size: 0.9rem;
         }
+        
+        /* Styling Link Langitan Tanpa Logo & Mencolok */
+.langitan-link-container {
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 2px solid var(--soft-aqua); /* Garis pembatas lebih tebal tapi soft */
+    text-align: left;
+}
+
+.langitan-link-container p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.btn-langitan-baru {
+    display: inline-block;
+    background: linear-gradient(135deg, #00a896 0%, #007d70 100%); /* Gradasi Hijau Langitan */
+    color: white;
+    padding: 14px 35px;
+    border-radius: 12px; /* Kotak dengan sudut membulat elegan */
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 1px; /* Jarak antar huruf biar gagah */
+    box-shadow: 0 10px 20px rgba(0, 168, 150, 0.3); /* Shadow biar "melayang" */
+    transition: all 0.3s ease;
+    border: none;
+    text-align: center;
+}
+
+.btn-langitan-baru:hover {
+    transform: translateY(-4px); /* Efek naik saat disentuh */
+    box-shadow: 0 15px 25px rgba(0, 168, 150, 0.4); /* Shadow makin tebal pas hover */
+    filter: brightness(1.1); /* Sedikit lebih terang */
+}
+
+.btn-langitan-baru:active {
+    transform: translateY(-1px);
+}
+
+/* Biar Full Width di HP */
+@media (max-width: 768px) {
+    .btn-langitan-baru {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
